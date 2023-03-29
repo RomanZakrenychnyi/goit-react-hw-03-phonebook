@@ -1,0 +1,31 @@
+.list {
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.contact {
+  margin-bottom: 20px;
+}
+
+.number {
+  margin-left: 10px;
+}
+
+.btn {
+    padding: 4px 15px;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.btn:hover {
+    background-color: rgb(151, 0, 0);
+}
