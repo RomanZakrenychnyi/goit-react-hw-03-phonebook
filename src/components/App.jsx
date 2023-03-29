@@ -16,6 +16,18 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const getContactsLS = localStorage.getItem('contacts');
+    const parsedContactLS = JSON.parse(getContactsLS);
+    this.setState({ contacts: parsedContactLS });
+  }
+
+  componentDidUpdate(prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   handleAddContact = event => {
     event.preventDefault();
     const name = event.target[0].value;
