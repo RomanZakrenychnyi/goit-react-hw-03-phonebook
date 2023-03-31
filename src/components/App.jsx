@@ -14,7 +14,7 @@ export class App extends Component {
   componentDidMount() {
     const getContactsLS = JSON.parse(localStorage.getItem('contacts'));
     if (!getContactsLS) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
     this.setState({ contacts: getContactsLS });
   }
@@ -29,6 +29,13 @@ export class App extends Component {
     event.preventDefault();
     const name = event.target[0].value;
     const number = event.target[1].value;
+
+    const checkName = this.state.contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+    if (checkName) {
+      return alert(`${name} is already in contacts.`);
+    }
     this.setState(prevState => {
       return {
         contacts: [...prevState.contacts, { name, number, id: nanoid() }],
