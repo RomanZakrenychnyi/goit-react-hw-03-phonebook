@@ -41,6 +41,8 @@ export class App extends Component {
         contacts: [...prevState.contacts, { name, number, id: nanoid() }],
       };
     });
+    event.target.children.name.value = '';
+    event.target.children.number.value = '';
   };
 
   handelFilter = event => {
